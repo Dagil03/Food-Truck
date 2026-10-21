@@ -17,8 +17,17 @@ public class Main {
         for (i = 0; i < 3; i++) {
             for (j = 0; j < 4; j++) {
                 System.out.print("Ingresos de " + productos[i] + " en turno " + turnos[j] + ": ");
-                ventas[i][j] = sc.nextDouble();
+                ventas[i][j] = leerValorValido(sc);
             }
         }
+    }
+    public static double leerValorValido(Scanner sc) {
+        double valor = 0;
+        valor = sc.nextDouble();
+        while (valor < 0) {
+            System.out.print("Error: Monto invalido. Ingrese nuevamente: ");
+            valor = sc.nextDouble();
+        }
+        return valor;
     }
 }
