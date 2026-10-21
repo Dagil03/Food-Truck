@@ -37,6 +37,11 @@ public class Main {
         double[] totalTurnos = new double[4];
         int i = 0;
         int j = 0;
+        double totalGeneral = 0;
+        int posMayorProd = 0;
+        int posMenorProd = 0;
+        int posMayorTurno = 0;
+        int posMenorTurno = 0;
 
         for (i = 0; i < 3; i++) {
             totalProductos[i] = 0;
@@ -51,7 +56,42 @@ public class Main {
                 totalTurnos[j] = totalTurnos[j] + ventas[i][j];
             }
         }
+
+        for (i = 0; i < 3; i++) {
+            System.out.println("Total " + productos[i] + ": $" + totalProductos[i]);
+        }
+
+
+        for (j = 0; j < 4; j++) {
+            System.out.println("Total turno " + turnos[j] + ": $" + totalTurnos[j]);
+        }
+
+
+        posMayorProd = mayor(totalProductos);
+        posMenorProd = menor(totalProductos);
+        posMayorTurno = mayor(totalTurnos);
+        posMenorTurno = menor(totalTurnos);
+
+        System.out.println("Producto con mayor recaudo: " + productos[posMayorProd] + " ($" + totalProductos[posMayorProd] + ")");
+        System.out.println("Producto con menor recaudo: " + productos[posMenorProd] + " ($" + totalProductos[posMenorProd] + ")");
+        System.out.println("Turno con mayor recaudo: " + turnos[posMayorTurno] + " ($" + totalTurnos[posMayorTurno] + ")");
+        System.out.println("Turno con menor recaudo: " + turnos[posMenorTurno] + " ($" + totalTurnos[posMenorTurno] + ")");
+
+
+        for (i = 0; i < 3; i++) {
+            totalGeneral = totalGeneral + totalProductos[i];
+        }
+        System.out.println("Total General Recaudado: $" + totalGeneral);
+
+
+        if (totalGeneral > 500000) {
+            System.out.println("Meta de Ventas Alcanzada");
+        } else {
+            System.out.println("Meta No Alcanzada");
+        }
+
     }
+
     public static int mayor(double[] vector) {
         int pos = 0;
         int k = 0;
@@ -72,4 +112,5 @@ public class Main {
         }
         return pos;
     }
+
 }
