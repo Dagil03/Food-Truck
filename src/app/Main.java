@@ -62,4 +62,14 @@ public class Main {
         }
         return pos;
     }
+    public static int menor(double[] vector) {
+        int pos = 0;
+        int k = 0;
+        for (k = 1; k < vector.length; k++) {
+            if (vector[k] < vector[pos]) {
+                pos = k;
+            }
+        }
+        return pos;
+    }
 }
